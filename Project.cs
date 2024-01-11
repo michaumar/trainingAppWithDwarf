@@ -38,8 +38,12 @@ namespace TrainingApp2
         {
 			get { return endTime; }
 			set 
-			{ 
-			//tu będą jakieś warunki typu endTime>startTime i uzupełnianie całego formatu	
+			{
+				//tu będą jakieś warunki typu endTime>startTime i uzupełnianie całego formatu
+				if (true)
+				{
+
+				}	
 				endTime = value; 
 			}
 		}
