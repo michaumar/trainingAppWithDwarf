@@ -37,7 +37,11 @@ namespace TrainingApp2
 		public DateTime EndTime
         {
 			get { return endTime; }
-			set { endTime = value; }
+			set 
+			{ 
+			//tu będą jakieś warunki typu endTime>startTime i uzupełnianie całego formatu	
+				endTime = value; 
+			}
 		}
 
 		public Project(string name, string description, DateTime startTime, DateTime endTime)
