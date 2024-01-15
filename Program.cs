@@ -7,9 +7,8 @@ Console.WriteLine(date1);
 // For en-US culture, displays 3/1/2008 7:00:00 AM
 
 
-
-
-Console.WriteLine(DateTime.Now.Day);
+Project project = new Project("Raf", "Desc", new DateTime(33, 1, 1, 0, 0, 0), new DateTime(32, 1, 1, 0, 0, 0));
+Project project2 = new Project("Raf", "Desc", new DateTime(33, 1, 1, 0, 0, 0), new DateTime(34, 1, 1, 0, 0, 0));
 
 
 

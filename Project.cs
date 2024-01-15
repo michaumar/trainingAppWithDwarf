@@ -8,54 +8,123 @@ namespace TrainingApp2
 {
     public class Project
     {
-		private string name;
+        private string name;
 
-		public string Name
-		{
-			get { return name; }
-			set { name = value; }
-		}
-
-		private string description;
-
-		public string Description
-		{
-			get { return description; }
-			set { description = value; }
-		}
-
-		private DateTime startTime;
-
-		public DateTime StartTime
+        public string Name
         {
-			get { return startTime; }
-			set { startTime = value; }
-		}
+            get { return name; }
+            set
+            {
+                for (; ; )
+                {
+                    try
+                    {
+                        name = value;
+                        break;
+                    }
+                    catch (ArgumentException)
+                    {
+                        Console.WriteLine("String required!"); ;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
+                    }
+                }
+            }
+        }
 
-		private DateTime endTime;
+        private string description;
 
-		public DateTime EndTime
+        public string Description
         {
-			get { return endTime; }
-			set 
-			{
-				//tu będą jakieś warunki typu endTime>startTime i uzupełnianie całego formatu
-				if (true)
-				{
+            get { return description; }
+            set
+            {
+                for (; ; )
+                {
+                    try
+                    {
+                        description = value;
+                        break;
+                    }
+                    catch (ArgumentException)
+                    {
+                        Console.WriteLine("String required!"); ;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
+                    }
+                }
+            }
+        }
 
-				}	
-				endTime = value; 
-			}
-		}
+        private DateTime startTime;
 
-		public Project(string name, string description, DateTime startTime, DateTime endTime)
-		{
-			Name = name;
-			Description = description;
-			StartTime = startTime;
-			EndTime = endTime;
-		}
+        public DateTime StartTime
+        {
+            get { return startTime; }
+            set
+            {
+                for (; ; )
+                {
+                    try
+                    {
+                        startTime = value;
+                        break;
+                    }
+                    catch (ArgumentException)
+                    {
+                        Console.WriteLine("DateTime required!"); ;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
+                    }
+                }
+            }
+        }
 
+        private DateTime endTime;
 
-	}
+        public DateTime EndTime
+        {
+            get { return endTime; }
+            set
+            {
+                for (; ; )
+                {
+                    try
+                    {
+                        if (value > startTime)
+                        {
+                            endTime = value;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Check input data");
+                        }
+                    }
+                    catch (ArgumentException)
+                    {
+                        Console.WriteLine("DateTime required!"); ;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
+                    }
+                }
+            }
+        }
+
+        public Project(string name, string description, DateTime startTime, DateTime endTime)
+        {
+            Name = name;
+            Description = description;
+            StartTime = startTime;
+            EndTime = endTime;
+        }
+    }
 }
