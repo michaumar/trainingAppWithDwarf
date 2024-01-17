@@ -13,25 +13,7 @@ namespace TrainingApp2
         public string Name
         {
             get { return name; }
-            set
-            {
-                for (; ; )
-                {
-                    try
-                    {
-                        name = value;
-                        break;
-                    }
-                    catch (ArgumentException)
-                    {
-                        Console.WriteLine("String required!"); ;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
-                    }
-                }
-            }
+            set { name = value; }
         }
 
         private string description;
@@ -39,25 +21,7 @@ namespace TrainingApp2
         public string Description
         {
             get { return description; }
-            set
-            {
-                for (; ; )
-                {
-                    try
-                    {
-                        description = value;
-                        break;
-                    }
-                    catch (ArgumentException)
-                    {
-                        Console.WriteLine("String required!"); ;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
-                    }
-                }
-            }
+            set { description = value; }
         }
 
         private DateTime startTime;
@@ -65,25 +29,7 @@ namespace TrainingApp2
         public DateTime StartTime
         {
             get { return startTime; }
-            set
-            {
-                for (; ; )
-                {
-                    try
-                    {
-                        startTime = value;
-                        break;
-                    }
-                    catch (ArgumentException)
-                    {
-                        Console.WriteLine("DateTime required!"); ;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
-                    }
-                }
-            }
+            set { startTime = value; }
         }
 
         private DateTime endTime;
@@ -91,32 +37,7 @@ namespace TrainingApp2
         public DateTime EndTime
         {
             get { return endTime; }
-            set
-            {
-                for (; ; )
-                {
-                    try
-                    {
-                        if (value > startTime)
-                        {
-                            endTime = value;
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Check input data");
-                        }
-                    }
-                    catch (ArgumentException)
-                    {
-                        Console.WriteLine("DateTime required!"); ;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine($"Bad things occured :/ - {e.Message}");
-                    }
-                }
-            }
+            set { endTime = value; }
         }
 
         public Project(string name, string description, DateTime startTime, DateTime endTime)
@@ -126,5 +47,7 @@ namespace TrainingApp2
             StartTime = startTime;
             EndTime = endTime;
         }
+
+
     }
 }
