@@ -37,7 +37,18 @@ namespace TrainingApp2
         public DateTime EndTime
         {
             get { return endTime; }
-            set { endTime = value; }
+            set
+            {
+                if (endTime > startTime)
+                {
+                    endTime = value;
+                }
+                else
+                {
+                    Console.WriteLine("endTime must be later than startTime -_-");
+                }
+
+            }
         }
 
         public Project(string name, string description, DateTime startTime, DateTime endTime)

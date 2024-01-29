@@ -11,14 +11,25 @@ Console.WriteLine(date1);
 //Project project2 = new Project("Raf", "Desc", new DateTime(33, 1, 1, 0, 0, 0), new DateTime(34, 1, 1, 0, 0, 0));
 
 InputDataValidation getValueFromConsole = new InputDataValidation();
-Console.WriteLine("string test");
-var teststring = getValueFromConsole.GetStringValueFromConsole();
-Console.WriteLine("DT test");
-//chyba cza osobne wpisywanie y/m/d h:m:s będzie łatwiej to sprawdzać i po prostu mieć te wszystkie dane
-var testDateTime = getValueFromConsole.GetDateTimeValueFromConsole();
+ProjectManager projectManager = new ProjectManager();
 
-Console.WriteLine(teststring);
-Console.WriteLine(testDateTime);
+
+var name = getValueFromConsole.GetStringValueFromConsole();
+var description = getValueFromConsole.GetStringValueFromConsole();
+var startTime = getValueFromConsole.GetDateTimeValueFromConsole();
+var endTime = getValueFromConsole.GetDateTimeValueFromConsole();
+
+
+var dictValue = getValueFromConsole.Parsing(description, startTime, endTime);
+
+projectManager.AddProject(name, dictValue);
+projectManager.DisplayProjects();
+
+
+
+
+
+
 
 
 

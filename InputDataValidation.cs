@@ -22,7 +22,7 @@ namespace TrainingApp2
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Something bad occured - {e.Message}!");
+                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time!");
                 }
             }
         }
@@ -42,9 +42,15 @@ namespace TrainingApp2
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Something bad occured - {e.Message}!");
+                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time!");
                 }
             }
         }
+
+        public string Parsing(string a, DateTime b, DateTime c)
+        {
+            return ($"Description: {a}, StartTime: {b.ToString("dd/MM/yyyy H:m:s")}, EndTime: {c.ToString("dd/MM/yyyy H:m:s")}");
+        }
+
     }
 }
