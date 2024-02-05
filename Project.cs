@@ -39,7 +39,7 @@ namespace TrainingApp2
             get { return endTime; }
             set
             {
-                if (endTime > startTime)
+                if (value > startTime)
                 {
                     endTime = value;
                 }
@@ -47,7 +47,6 @@ namespace TrainingApp2
                 {
                     Console.WriteLine("endTime must be later than startTime -_-");
                 }
-
             }
         }
 

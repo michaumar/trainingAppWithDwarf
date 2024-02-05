@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,21 +9,20 @@ namespace TrainingApp2
 {
     public class ProjectManager
     {
-        Dictionary<string, string> ProjectManagerDict = new Dictionary<string, string>();
-
-        public void AddProject(string name, string description_startTime_EndTime)
+        List<Project> projectsList = new List<Project>();
+        public void AddProject(string name, string description, DateTime startTime, DateTime endTime) 
         {
-            ProjectManagerDict.Add(name, description_startTime_EndTime);
+            projectsList.Add(new Project(name, description, startTime, endTime));
         }
-        public void RemoveProject(string name)
-        {
-            ProjectManagerDict.Remove(name);
-        }
+        //public void RemoveProject(string name)
+        //{
+        //    projectsList.Remove(name);
+        //}
         public void DisplayProjects()
         {
-            foreach (var item in ProjectManagerDict)
+            foreach (var project in projectsList)
             {
-                Console.WriteLine("{0} : {1}", item.Key, item.Value);
+                Console.WriteLine("Name: {0}, Description: {1}, Start time: {2}, End time: {3}", project.Name, project.Description, project.StartTime, project.EndTime);
             }
         }
     }
