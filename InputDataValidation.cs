@@ -33,7 +33,7 @@ namespace TrainingApp2
                 try
                 {
                     Console.WriteLine("DateTime format - (int year, int month, int day, int hour, int minute, int second)" +
-                        " f.e. DateTime(2010, 8, 18, 16, 32, 0) displays 8/18/2010 4:32:00 PM");
+                        " f.e. DateTime(2010, 8, 18, 16, 32, 0), type 2010/8/18 16:32:00 to display 8/18/2010 4:32:00 PM");
                     return DateTime.Parse(Console.ReadLine());
                 }
                 catch (ArgumentException)
