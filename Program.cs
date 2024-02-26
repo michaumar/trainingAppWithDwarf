@@ -63,16 +63,26 @@ for (int i = 0; i < 3; i++)
         }
     }
 
-    projects.AddProject(name, description, startTime, endTime);
+    if (projects.CheckIfProjectExist(name))
+    {
+        Console.WriteLine("Project will not be saved, because exists!");
+    }
+    else
+    {
+        projects.AddProject(name, description, startTime, endTime);
+    }
+
+    projects.DisplayProjects();
 }
 
 //zabezpieczenie przed tą samą nazwą projektu? opcja nadpisywania czy coś?
 
+Console.WriteLine("\nFinal list:");
 projects.DisplayProjects();
 
 //zabezpiczenie przez usuwaniem wszystkiego, chociaż teoretycznie można usunąć wszystkie projekty -_-
 
-for (int i = 0; i < 3; i++)
+for (int i = 0; i < 4; i++)
 {
     Console.WriteLine("delete project, type name");
     projects.RemoveProject(inputData.GetStringValueFromConsole());

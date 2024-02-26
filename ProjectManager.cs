@@ -19,6 +19,12 @@ namespace TrainingApp2
             Project searchProject = projectsList.First(project => project.Name == name);
             projectsList.Remove(searchProject);
         }
+
+        public bool CheckIfProjectExist(string name)
+        {
+            Project searchProject = projectsList.FirstOrDefault(project => project.Name == name);
+            return projectsList.Contains(searchProject);
+        }
         public void DisplayProjects()
         {
             foreach (var project in projectsList)
