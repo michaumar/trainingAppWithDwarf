@@ -37,22 +37,29 @@ using TrainingApp2;
 
 ProjectManager projects = new ProjectManager();
 InputDataValidation inputData = new InputDataValidation();
+ProjectValidator projectValidator = new ProjectValidator();
 
 for (int i = 0; i < 3; i++)
 {
     Console.WriteLine("Type project name");
     var name = inputData.GetStringValueFromConsole();
+    var validator1 = projectValidator.ValidateName(name);
     Console.WriteLine("Type project description");
     var description = inputData.GetStringValueFromConsole();
+    var validator2 = projectValidator.ValidateDescription(description);
     Console.WriteLine("Type project start time");
     var startTime = inputData.GetDateTimeValueFromConsole();
+    var validator3 = projectValidator.ValidateTime(startTime);
 
     DateTime endTime = new DateTime();
+
 
     for (; ; )
     {
         Console.WriteLine("Type project end time");
         endTime = inputData.GetDateTimeValueFromConsole();
+        var validator4 = projectValidator.ValidateTime(endTime);
+
         if (endTime > startTime)
         {
             break;

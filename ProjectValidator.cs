@@ -51,16 +51,16 @@ namespace TrainingApp2
             }
         }
 
-        public void ValidateProject(bool ValidateName, bool ValidateDescription, bool ValidateTime)
-        {
-            if (ValidateName & ValidateDescription & ValidateTime)
-            {
-                Console.WriteLine("Validation OK!");
-            }
-            else
-            {
-                Console.WriteLine("Validation NOK! Check logs and try one more time!");
-            }
-        }
+        //public void ValidateProject(bool ValidateName, bool ValidateDescription, bool ValidateTime)
+        //{
+        //    if (ValidateName & ValidateDescription & ValidateTime)
+        //    {
+        //        Console.WriteLine("Validation OK!");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Validation NOK! Check logs and try one more time!");
+        //    }
+        //}
     }
 }
