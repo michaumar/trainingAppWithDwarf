@@ -6,49 +6,83 @@ using System.Threading.Tasks;
 
 namespace TrainingApp2
 {
+
     public class ProjectValidator
     {
-        public bool ValidateName(string nameCheck)
+        InputDataValidation inputData = new InputDataValidation();
+        public string ValidateName()
         {
-            if (nameCheck.Length >= 3) 
+            while (true)
             {
-                Console.WriteLine("Name has correct length!");
-                return true;
+                Console.WriteLine("Type project name");
+                var name = inputData.GetStringValueFromConsole();
+                if (name.Length >= 3)
+                {
+                    Console.WriteLine("Name has correct length!");
+                    return name;
+                }
+                else
+                {
+                    Console.WriteLine("Name must have at least 3 characters!");
+                }
             }
-            else
+
+
+        }
+        public string ValidateDescription()
+        {
+            while (true)
             {
-                Console.WriteLine("Name must have at least 3 characters!");
-                return false;
+                Console.WriteLine("Type project description");
+                var description = inputData.GetStringValueFromConsole();
+                if (description.Length >= 5)
+                {
+                    Console.WriteLine("Name has correct length!");
+                    return description;
+                }
+                else
+                {
+                    Console.WriteLine("Name must have at least 5 characters!");
+                }
+            }
+        }
+        public DateTime ValidateStartTime()
+        {
+            DateTime startTime = new DateTime();
+            while (true)
+            {
+                Console.WriteLine("Type project start time");
+                startTime = inputData.GetDateTimeValueFromConsole();
+                if (startTime.Year >= 2020)
+                {
+                    Console.WriteLine("Time is OK!");
+                    return startTime;
+                }
+                else
+                {
+                    Console.WriteLine("Time of project must be from 2020 onwards!");
+                }
             }
 
         }
-        public bool ValidateDescription(string descriptionCheck)
-        {
-            if (descriptionCheck.Length >= 5)
-            {
-                Console.WriteLine("Name has correct length!");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Name must have at least 3 characters!");
-                return false;
+        public DateTime ValidateEndTime()
+        {   
+            DateTime endTime = new DateTime();
+            while (true)
+            {   
+                Console.WriteLine("Type project end time");
+                endTime = inputData.GetDateTimeValueFromConsole();
+                if (endTime.Year >= 2020)
+                {
+                    Console.WriteLine("Time is OK!");
+                    return endTime;
+                }
+                else
+                {
+                    Console.WriteLine("Time of project must be from 2020 onwards!");
+                }
             }
 
-        }
-
-        public bool ValidateTime(DateTime timeCheck)
-        {
-            if (timeCheck.Year >= 2020)
-            {
-                Console.WriteLine("Time is OK!");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Time of project must be from 2020 onwards!");
-                return false;
-            }
         }
 
         //public void ValidateProject(bool ValidateName, bool ValidateDescription, bool ValidateTime)
