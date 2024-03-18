@@ -18,11 +18,11 @@ namespace TrainingApp2
                 }
                 catch (ArgumentException)
                 {
-                    Console.WriteLine("String argument needed!");
+                    Console.WriteLine("String argument needed! \n");
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time!");
+                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time! \n");
                 }
             }
         }
@@ -38,18 +38,18 @@ namespace TrainingApp2
                 }
                 catch (ArgumentException)
                 {
-                    Console.WriteLine("DateTime argument needed!");
+                    Console.WriteLine("DateTime argument needed! \n");
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time!");
+                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time! \n");
                 }
             }
         }
 
         public string Parsing(string a, DateTime b, DateTime c)
         {
-            return ($"Description: {a}, StartTime: {b.ToString("dd/MM/yyyy H:m:s")}, EndTime: {c.ToString("dd/MM/yyyy H:m:s")}");
+            return ($"Description: {a}, StartTime: {b.ToString("dd/MM/yyyy H:m:s")}, EndTime: {c.ToString("dd/MM/yyyy H:m:s")}\n");
         }
 
     }

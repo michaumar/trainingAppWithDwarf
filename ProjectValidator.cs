@@ -18,12 +18,12 @@ namespace TrainingApp2
                 var name = inputData.GetStringValueFromConsole();
                 if (name.Length >= 3)
                 {
-                    Console.WriteLine("Name has correct length!");
+                    Console.WriteLine("\nName has correct length!\n");
                     return name;
                 }
                 else
                 {
-                    Console.WriteLine("Name must have at least 3 characters!");
+                    Console.WriteLine("\nName must have at least 3 characters!\n");
                 }
             }
 
@@ -37,12 +37,12 @@ namespace TrainingApp2
                 var description = inputData.GetStringValueFromConsole();
                 if (description.Length >= 5)
                 {
-                    Console.WriteLine("Name has correct length!");
+                    Console.WriteLine("\nDescription has correct length!\n");
                     return description;
                 }
                 else
                 {
-                    Console.WriteLine("Name must have at least 5 characters!");
+                    Console.WriteLine("\nDescription must have at least 5 characters!\n");
                 }
             }
         }
@@ -55,12 +55,12 @@ namespace TrainingApp2
                 startTime = inputData.GetDateTimeValueFromConsole();
                 if (startTime.Year >= 2020)
                 {
-                    Console.WriteLine("Time is OK!");
+                    Console.WriteLine("\nStart time is OK! \n");
                     return startTime;
                 }
                 else
                 {
-                    Console.WriteLine("Time of project must be from 2020 onwards!");
+                    Console.WriteLine("\nTime of project must be from 2020 onwards!\n");
                 }
             }
 
@@ -74,12 +74,12 @@ namespace TrainingApp2
                 endTime = inputData.GetDateTimeValueFromConsole();
                 if (endTime.Year >= 2020)
                 {
-                    Console.WriteLine("Time is OK!");
+                    Console.WriteLine("\nEnd time is OK!\n");
                     return endTime;
                 }
                 else
                 {
-                    Console.WriteLine("Time of project must be from 2020 onwards!");
+                    Console.WriteLine("\nTime of project must be from 2020 onwards!\n");
                 }
             }
 

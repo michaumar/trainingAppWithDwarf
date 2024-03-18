@@ -33,6 +33,11 @@ namespace TrainingApp2
             }
         }
 
+        public int CheckActualAmountOfProject()
+        {
+            return projectsList.Count();
+        }
+
 
     }
 }

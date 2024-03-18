@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Channels;
+using System.Xml.Linq;
 using TrainingApp2;
 
 /*
@@ -39,14 +40,13 @@ ProjectManager projects = new ProjectManager();
 InputDataValidation inputData = new InputDataValidation();
 ProjectValidator projectValidator = new ProjectValidator();
 
-for (int i = 0; i < 3; i++)
+for (int i = 0; i < 2; i++)
 {
     var name = projectValidator.ValidateName();
     var description = projectValidator.ValidateDescription();
     var startTime = projectValidator.ValidateStartTime();
     var endTime = projectValidator.ValidateEndTime();
 
-//obsługa tego :/
     for (; ; )
     {
         if (endTime > startTime)
@@ -55,13 +55,14 @@ for (int i = 0; i < 3; i++)
         }
         else
         {
-            Console.WriteLine("end time > start time!");
+            Console.WriteLine("end time > start time!\n");
+            endTime = projectValidator.ValidateEndTime();
         }
     }
 
     if (projects.CheckIfProjectExist(name))
     {
-        Console.WriteLine("Project will not be saved, because exists!");
+        Console.WriteLine("Project will not be saved, because exists!\n");
     }
     else
     {
@@ -71,17 +72,40 @@ for (int i = 0; i < 3; i++)
     projects.DisplayProjects();
 }
 
-//zabezpieczenie przed tą samą nazwą projektu? opcja nadpisywania czy coś?
-
 Console.WriteLine("\nFinal list:");
 projects.DisplayProjects();
 
-//zabezpiczenie przez usuwaniem wszystkiego, chociaż teoretycznie można usunąć wszystkie projekty -_-
-
-for (int i = 0; i < 4; i++)
+for (int i = 0; i < 3; i++)
 {
-    Console.WriteLine("delete project, type name");
-    projects.RemoveProject(inputData.GetStringValueFromConsole());
+    for (; ; )
+    {
+        if (projects.CheckActualAmountOfProject()>0)
+        {
+            Console.WriteLine("To delete project, type name!");
+            var tempName = inputData.GetStringValueFromConsole();
+            var tempNameCheck = projects.CheckIfProjectExist(tempName);
+
+            if (tempNameCheck)
+            {
+                projects.RemoveProject(tempName);
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Project does not exist! Try one more time!\n");
+            }
+            projects.DisplayProjects();
+        }
+        else
+        {
+            Console.WriteLine("Add projects! Nothing to delete!\n");
+            break;
+        }
+
+        
+
+    }
+    
     projects.DisplayProjects();
 }
 
