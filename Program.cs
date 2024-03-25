@@ -4,119 +4,90 @@ using System.Threading.Channels;
 using System.Xml.Linq;
 using TrainingApp2;
 
-/*
-//var date1 = new DateTime(33, 1, 1, 0, 0, 0); //Y, M, D, H, Min, S 
-//Console.WriteLine(date1);
-//// For en-US culture, displays 3/1/2008 7:00:00 AM
 
-
-////Project project = new Project("Raf", "Desc", new DateTime(33, 1, 1, 0, 0, 0), new DateTime(32, 1, 1, 0, 0, 0));
-////Project project2 = new Project("Raf", "Desc", new DateTime(33, 1, 1, 0, 0, 0), new DateTime(34, 1, 1, 0, 0, 0));
-
-//InputDataValidation getValueFromConsole = new InputDataValidation();
-//ProjectManager projectManager = new ProjectManager();
-
-
-//var name = getValueFromConsole.GetStringValueFromConsole();
-//var description = getValueFromConsole.GetStringValueFromConsole();
-//var startTime = getValueFromConsole.GetDateTimeValueFromConsole();
-//var endTime = getValueFromConsole.GetDateTimeValueFromConsole();
-
-
-//var dictValue = getValueFromConsole.Parsing(description, startTime, endTime);
-
-//projectManager.AddProject(name, dictValue);
-//projectManager.DisplayProjects();
-
-
-//List<Project> projects = new List<Project>();
-//projects.Add(new Project("name", "desc", DateTime.Now, DateTime.Now.AddDays(2)));
-
-//projects.AddProject("masarnia", "boczek opis", DateTime.Now, DateTime.Now.AddDays(2));
-//projects.AddProject("sexshop", "dildo opis", DateTime.Now, DateTime.Now.AddDays(3));
-*/
 
 ProjectManager projects = new ProjectManager();
 InputDataValidation inputData = new InputDataValidation();
 ProjectValidator projectValidator = new ProjectValidator();
+Menu menu = new Menu();
+int tempMenuValue;
 
-for (int i = 0; i < 2; i++)
+for (; ; )
 {
-    var name = projectValidator.ValidateName();
-    var description = projectValidator.ValidateDescription();
-    var startTime = projectValidator.ValidateStartTime();
-    var endTime = projectValidator.ValidateEndTime();
-
-    for (; ; )
+    tempMenuValue = menu.DisplayMenu();
+    if (tempMenuValue == 1)
     {
-        if (endTime > startTime)
+        Console.WriteLine("1. Add project");
+        var name = projectValidator.ValidateName();
+        var description = projectValidator.ValidateDescription();
+        var startTime = projectValidator.ValidateStartTime();
+        var endTime = projectValidator.ValidateEndTime();
+
+        for (; ; )
         {
-            break;
-        }
-        else
-        {
-            Console.WriteLine("end time > start time!\n");
-            endTime = projectValidator.ValidateEndTime();
-        }
-    }
-
-    if (projects.CheckIfProjectExist(name))
-    {
-        Console.WriteLine("Project will not be saved, because exists!\n");
-    }
-    else
-    {
-        projects.AddProject(name, description, startTime, endTime);
-    }
-
-    projects.DisplayProjects();
-}
-
-Console.WriteLine("\nFinal list:");
-projects.DisplayProjects();
-
-for (int i = 0; i < 3; i++)
-{
-    for (; ; )
-    {
-        if (projects.CheckActualAmountOfProject()>0)
-        {
-            Console.WriteLine("To delete project, type name!");
-            var tempName = inputData.GetStringValueFromConsole();
-            var tempNameCheck = projects.CheckIfProjectExist(tempName);
-
-            if (tempNameCheck)
+            if (endTime > startTime)
             {
-                projects.RemoveProject(tempName);
                 break;
             }
             else
             {
-                Console.WriteLine("Project does not exist! Try one more time!\n");
+                Console.WriteLine("end time > start time!\n");
+                endTime = projectValidator.ValidateEndTime();
             }
-            projects.DisplayProjects();
+        }
+
+        if (projects.CheckIfProjectExist(name))
+        {
+            Console.WriteLine("Project will not be saved, because exists!\n");
         }
         else
         {
-            Console.WriteLine("Add projects! Nothing to delete!\n");
-            break;
+            projects.AddProject(name, description, startTime, endTime);
         }
-
-        
-
     }
-    
-    projects.DisplayProjects();
+    else if (tempMenuValue == 2)
+    {
+        Console.WriteLine("2. Delete project");
+        for (; ; )
+        {
+            if (projects.CheckActualAmountOfProject() > 0)
+            {
+                Console.WriteLine("To delete project, type name!");
+                var tempName = inputData.GetStringValueFromConsole();
+                var tempNameCheck = projects.CheckIfProjectExist(tempName);
+
+                if (tempNameCheck)
+                {
+                    projects.RemoveProject(tempName);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Project does not exist! Try one more time!\n");
+                }
+                projects.DisplayProjects();
+            }
+            else
+            {
+                Console.WriteLine("Add projects! Nothing to delete!\n");
+                break;
+            }
+        }
+    }
+    else if (tempMenuValue == 3)
+    {
+        Console.WriteLine("3.Display projects list");
+        projects.DisplayProjects();
+    }
+    else if (tempMenuValue == 4)
+    {
+        Console.WriteLine("4. Display projects and close");
+        projects.DisplayProjects();
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Try one more time, something went wrong!");
+    }
 }
 
-Console.WriteLine("final");
-projects.DisplayProjects();
-
-
-//Project pro = projects.First();
-//Project searchProject = projects.First(project => project.Name == "name");
-//Project p = projects.First(project => project.Name == "pro");
-//projects.Remove(projects[0]);
-
-
-//Project project = new Project(name, description, startTime, endTime);
