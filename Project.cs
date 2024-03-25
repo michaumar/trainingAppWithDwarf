@@ -8,46 +8,46 @@ namespace TrainingApp2
 {
     public class Project
     {
-		private string name;
+        private string name;
 
-		public string Name
-		{
-			get { return name; }
-			set { name = value; }
-		}
-
-		private string description;
-
-		public string Description
-		{
-			get { return description; }
-			set { description = value; }
-		}
-
-		private DateTime startTime;
-
-		public DateTime StartTime
+        public string Name
         {
-			get { return startTime; }
-			set { startTime = value; }
-		}
+            get { return name; }
+            set { name = value; }
+        }
 
-		private DateTime endTime;
+        private string description;
 
-		public DateTime EndTime
+        public string Description
         {
-			get { return endTime; }
-			set { endTime = value; }
-		}
+            get { return description; }
+            set { description = value; }
+        }
 
-		public Project(string name, string description, DateTime startTime, DateTime endTime)
-		{
-			Name = name;
-			Description = description;
-			StartTime = startTime;
-			EndTime = endTime;
-		}
+        private DateTime startTime;
+
+        public DateTime StartTime
+        {
+            get { return startTime; }
+            set { startTime = value; }
+        }
+
+        private DateTime endTime;
+
+        public DateTime EndTime
+        {
+            get { return endTime; }
+            set { endTime = value; }
+        }
+
+        public Project(string name, string description, DateTime startTime, DateTime endTime)
+        {
+            Name = name;
+            Description = description;
+            StartTime = startTime;
+            EndTime = endTime;
+        }
 
 
-	}
+    }
 }
