@@ -55,7 +55,7 @@ namespace TrainingApp2
         {
             foreach (var project in financeProjectsList)
             {
-                Console.WriteLine("Name: {0}, Description: {1}, Start time: {2}, End time: {3}", project.Name, project.Description, project.Price, project.Author);
+                Console.WriteLine("Name: {0}, Description: {1}, Price: {2}, Author: {3}", project.Name, project.Description, project.Price, project.Author);
             }
         }
         public int CheckActualAmountOfFinanceProject()
