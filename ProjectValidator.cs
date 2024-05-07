@@ -9,6 +9,12 @@ namespace TrainingApp2
 
     public class ProjectValidator
     {
+        public int limitLenghtOfName = 3;
+        public int limitLenghtOfDescription = 5;
+        public int limitYearOfStartTime = 2020;
+        public int limitLenghtOfAuthor = 2;
+        public int priceException = 0;
+
         InputDataValidation inputData = new InputDataValidation();
         public string ValidateName()
         {
@@ -16,7 +22,7 @@ namespace TrainingApp2
             {
                 Console.WriteLine("Type project name");
                 var name = inputData.GetStringValueFromConsole();
-                if (name.Length >= 3)
+                if (name.Length >= limitLenghtOfName)
                 {
                     Console.WriteLine("\nName has correct length!\n");
                     return name;
@@ -35,7 +41,7 @@ namespace TrainingApp2
             {
                 Console.WriteLine("Type project description");
                 var description = inputData.GetStringValueFromConsole();
-                if (description.Length >= 5)
+                if (description.Length >= limitLenghtOfDescription)
                 {
                     Console.WriteLine("\nDescription has correct length!\n");
                     return description;
@@ -53,7 +59,7 @@ namespace TrainingApp2
             {
                 Console.WriteLine("Type project start time");
                 startTime = inputData.GetDateTimeValueFromConsole();
-                if (startTime.Year >= 2020)
+                if (startTime.Year >= limitYearOfStartTime)
                 {
                     Console.WriteLine("\nStart time is OK! \n");
                     return startTime;
@@ -72,7 +78,7 @@ namespace TrainingApp2
             {   
                 Console.WriteLine("Type project end time");
                 endTime = inputData.GetDateTimeValueFromConsole();
-                if (endTime.Year >= 2020)
+                if (endTime.Year >= limitYearOfStartTime)
                 {
                     Console.WriteLine("\nEnd time is OK!\n");
                     return endTime;
@@ -90,7 +96,7 @@ namespace TrainingApp2
             {
                 Console.WriteLine("Type author");
                 var name = inputData.GetStringValueFromConsole();
-                if (name.Length >= 2)
+                if (name.Length >= limitLenghtOfAuthor)
                 {
                     Console.WriteLine("\nAuthor has correct length!\n");
                     return name;
@@ -107,7 +113,7 @@ namespace TrainingApp2
             {
                 Console.WriteLine("Type price");
                 var name = inputData.GetFloatValueFromConsole();
-                if (name != 0)
+                if (name != priceException)
                 {
                     Console.WriteLine("\nPrice is not zero! OK\n");
                     return name;

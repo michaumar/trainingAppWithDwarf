@@ -8,6 +8,14 @@ namespace TrainingApp2
 {
     public class Menu
     {
+        public int addProjectSelection = 1;
+        public int deleteProjectSelection = 2;
+        public int displayProjectListSelection = 3;
+        public int displayProjectListAndSelectMenuSelection = 4;
+        public int classicProjectSelection = 1;
+        public int financeProjectSelection = 2;
+        public int closeProjectSelection = 3;
+
         public int DisplayProjectManagerMenu()
         {
             Console.WriteLine("\nAvailable options:\n" +
@@ -34,6 +42,7 @@ namespace TrainingApp2
             }
 
         }
+
         public int DisplayProjectSelectMenu()
         {
             Console.WriteLine("\nAvailable options:\n" +
