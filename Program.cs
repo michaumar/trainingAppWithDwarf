@@ -3,10 +3,14 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading.Channels;
 using System.Xml.Linq;
 using TrainingApp2;
+using TrainingApp2.Validators;
 
 ProjectManager projects = new ProjectManager();
 InputDataValidation inputData = new InputDataValidation();
-ProjectValidator projectValidator = new ProjectValidator();
+BasicValidator basicValidator = new BasicValidator();
+FinanceProjectValidator financeProjectValidator = new FinanceProjectValidator();
+ClassicProjectValidator classicProjectValidator = new ClassicProjectValidator();
+
 
 Menu menu = new Menu();
 int tempManagerMenuValue;
@@ -23,10 +27,10 @@ for (; ; )
             if (tempManagerMenuValue == menu.addProjectSelection)
             {
                 Console.WriteLine("1. Add project");
-                var name = projectValidator.ValidateName();
-                var description = projectValidator.ValidateDescription();
-                var startTime = projectValidator.ValidateStartTime();
-                var endTime = projectValidator.ValidateEndTime();
+                var name = basicValidator.ValidateName();
+                var description = basicValidator.ValidateDescription();
+                var startTime = classicProjectValidator.ValidateStartTime();
+                var endTime = classicProjectValidator.ValidateEndTime();
 
                 for (; ; )
                 {
@@ -37,7 +41,7 @@ for (; ; )
                     else
                     {
                         Console.WriteLine("end time > start time!\n");
-                        endTime = projectValidator.ValidateEndTime();
+                        endTime = classicProjectValidator.ValidateEndTime();
                     }
                 }
 
@@ -105,10 +109,10 @@ for (; ; )
             if (tempManagerMenuValue == menu.addProjectSelection)
             {
                 Console.WriteLine("1. Add project");
-                var name = projectValidator.ValidateName();
-                var description = projectValidator.ValidateDescription();
-                var price = projectValidator.ValidatePrice();
-                var author = projectValidator.ValidateAuthor();
+                var name = basicValidator.ValidateName();
+                var description = basicValidator.ValidateDescription();
+                var price = financeProjectValidator.ValidatePrice();
+                var author = financeProjectValidator.ValidateAuthor();
 
 
                 if (projects.CheckIfFinanceProjectExist(name))
