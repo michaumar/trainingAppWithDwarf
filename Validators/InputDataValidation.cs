@@ -10,7 +10,7 @@ namespace TrainingApp2.Validators
     {
         public string GetStringValueFromConsole()
         {
-            for (; ; )
+            while (true)
             {
                 try
                 {
@@ -28,7 +28,7 @@ namespace TrainingApp2.Validators
         }
         public DateTime GetDateTimeValueFromConsole()
         {
-            for (; ; )
+            while (true)
             {
                 try
                 {
@@ -48,7 +48,7 @@ namespace TrainingApp2.Validators
         }
         public float GetFloatValueFromConsole()
         {
-            for (; ; )
+            while (true)
             {
                 try
                 {

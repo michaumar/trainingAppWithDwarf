@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrainingApp2
+namespace TrainingApp2.Menus
 {
     public class Menu
     {
