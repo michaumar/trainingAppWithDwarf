@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrainingApp2.Validators;
+using TrainingApp2.Menus;
+using System.Threading.Channels;
+using static TrainingApp2.Menus.Menu;
+using static TrainingApp2.ProjectManager;
 
 namespace TrainingApp2.Menus
 {
@@ -21,7 +25,7 @@ namespace TrainingApp2.Menus
             while (true)
             {
                 tempProjectSelectMenu = menu.DisplayProjectManagerMenu();
-                if (tempProjectSelectMenu == menu.addProjectSelection)
+                if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.addProjectSelection)
                 {
                     Console.WriteLine("1. Add project");
                     var name = basicValidator.ValidateName();
@@ -51,12 +55,12 @@ namespace TrainingApp2.Menus
                         projects.AddClassicProject(name, description, startTime, endTime);
                     }
                 }
-                else if (tempProjectSelectMenu == menu.deleteProjectSelection)
+                else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.deleteProjectSelection)
                 {
                     Console.WriteLine("2. Delete project");
                     while (true)
                     {
-                        if (projects.CheckActualAmountOfClassicProject() > projects.limitNumberOfProjects)
+                        if (projects.CheckActualAmountOfClassicProject() > (int)Limits.limitNumberOfProjects)
                         {
                             Console.WriteLine("To delete project, type name!");
                             var tempName = inputData.GetStringValueFromConsole();
@@ -80,12 +84,12 @@ namespace TrainingApp2.Menus
                         }
                     }
                 }
-                else if (tempProjectSelectMenu == menu.displayProjectListSelection)
+                else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.displayProjectListSelection)
                 {
                     Console.WriteLine("3.Display projects list");
                     projects.DisplayClassicProjects();
                 }
-                else if (tempProjectSelectMenu == menu.displayProjectListAndSelectMenuSelection)
+                else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.displayProjectListAndSelectMenuSelection)
                 {
                     Console.WriteLine("4. Display projects list and display project select menu");
                     projects.DisplayClassicProjects();

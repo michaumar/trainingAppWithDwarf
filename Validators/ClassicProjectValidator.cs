@@ -2,7 +2,10 @@
 {
     public class ClassicProjectValidator : BasicValidator
     {
-        public int limitYearOfStartTime = 2020;
+        enum Limits
+        {
+            limitYearOfStartTime = 2020
+        }
 
         InputDataValidation inputData = new InputDataValidation();
         public DateTime ValidateStartTime()
@@ -12,7 +15,7 @@
             {
                 Console.WriteLine("Type project start time");
                 startTime = inputData.GetDateTimeValueFromConsole();
-                if (startTime.Year >= limitYearOfStartTime)
+                if (startTime.Year >= (int)Limits.limitYearOfStartTime)
                 {
                     Console.WriteLine("\nStart time is OK! \n");
                     return startTime;
@@ -31,7 +34,7 @@
             {
                 Console.WriteLine("Type project end time");
                 endTime = inputData.GetDateTimeValueFromConsole();
-                if (endTime.Year >= limitYearOfStartTime)
+                if (endTime.Year >= (int)Limits.limitYearOfStartTime)
                 {
                     Console.WriteLine("\nEnd time is OK!\n");
                     return endTime;

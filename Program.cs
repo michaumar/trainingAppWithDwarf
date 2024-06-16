@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using TrainingApp2;
 using TrainingApp2.Menus;
 using TrainingApp2.Validators;
+using static TrainingApp2.Menus.Menu;
 
 Menu menu = new Menu();
 int tempProjectSelectMenu;
@@ -15,15 +16,15 @@ FinanceProjectMenu financeProjectMenu = new FinanceProjectMenu();
 while(true)
 {
     tempProjectSelectMenu = menu.DisplayProjectSelectMenu();
-    if (tempProjectSelectMenu == menu.classicProjectSelection)
+    if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.classicProjectSelection)
     {
         classicProjectMenu.ClassicProjectMenuSelection(); 
     }
-    else if (tempProjectSelectMenu == menu.financeProjectSelection)
+    else if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.financeProjectSelection)
     {
         financeProjectMenu.FinanceProjectMenuSelection();
     }
-    else if (tempProjectSelectMenu == menu.closeProjectSelection)
+    else if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.closeProjectSelection)
     {
         break;
     }

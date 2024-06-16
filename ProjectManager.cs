@@ -6,11 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using TrainingApp2.Projects;
 
+
 namespace TrainingApp2
 {
     public class ProjectManager
     {
-        public int limitNumberOfProjects = 0;
+        public enum Limits
+        {
+            limitNumberOfProjects = 0
+        }
+
         List<ClassicProjectProperties> classicProjectsList = new List<ClassicProjectProperties>();
         List<FinanceProjectProperties> financeProjectsList = new List<FinanceProjectProperties>();
         public void AddClassicProject(string name, string description, DateTime startTime, DateTime endTime)

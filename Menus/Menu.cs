@@ -8,13 +8,20 @@ namespace TrainingApp2.Menus
 {
     public class Menu
     {
-        public int addProjectSelection = 1;
-        public int deleteProjectSelection = 2;
-        public int displayProjectListSelection = 3;
-        public int displayProjectListAndSelectMenuSelection = 4;
-        public int classicProjectSelection = 1;
-        public int financeProjectSelection = 2;
-        public int closeProjectSelection = 3;
+        public enum ProjectManagerMenuSelections
+        {
+            addProjectSelection = 1,
+            deleteProjectSelection,
+            displayProjectListSelection,
+            displayProjectListAndSelectMenuSelection
+        }
+
+        public enum ProjectSelectMenuSelections
+        {
+            classicProjectSelection = 1,
+            financeProjectSelection,
+            closeProjectSelection
+        }
 
         public int DisplayProjectManagerMenu()
         {

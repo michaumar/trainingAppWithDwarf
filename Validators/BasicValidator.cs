@@ -2,8 +2,11 @@
 {
     public class BasicValidator
     {
-        public int limitLenghtOfName = 3;
-        public int limitLenghtOfDescription = 5;
+        enum Limits
+        {
+            limitLenghtOfName = 3,
+            limitLenghtOfDescription = 5
+        }
 
         InputDataValidation inputData = new InputDataValidation();
         public string ValidateName()
@@ -12,7 +15,7 @@
             {
                 Console.WriteLine("Type project name");
                 var name = inputData.GetStringValueFromConsole();
-                if (name.Length >= limitLenghtOfName)
+                if (name.Length >= (int)Limits.limitLenghtOfName)
                 {
                     Console.WriteLine("\nName has correct length!\n");
                     return name;
@@ -31,7 +34,7 @@
             {
                 Console.WriteLine("Type project description");
                 var description = inputData.GetStringValueFromConsole();
-                if (description.Length >= limitLenghtOfDescription)
+                if (description.Length >= (int)Limits.limitLenghtOfDescription)
                 {
                     Console.WriteLine("\nDescription has correct length!\n");
                     return description;
