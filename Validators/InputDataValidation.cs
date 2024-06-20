@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrainingApp2
+namespace TrainingApp2.Validators
 {
     public class InputDataValidation
     {
         public string GetStringValueFromConsole()
         {
-            for(; ; )
+            while (true)
             {
                 try
                 {
@@ -28,7 +28,7 @@ namespace TrainingApp2
         }
         public DateTime GetDateTimeValueFromConsole()
         {
-            for (; ; )
+            while (true)
             {
                 try
                 {
@@ -46,10 +46,23 @@ namespace TrainingApp2
                 }
             }
         }
-
-        public string Parsing(string a, DateTime b, DateTime c)
+        public float GetFloatValueFromConsole()
         {
-            return ($"Description: {a}, StartTime: {b.ToString("dd/MM/yyyy H:m:s")}, EndTime: {c.ToString("dd/MM/yyyy H:m:s")}\n");
+            while (true)
+            {
+                try
+                {
+                    return float.Parse(Console.ReadLine());
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine("Float argument needed! \n");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time! \n");
+                }
+            }
         }
 
     }

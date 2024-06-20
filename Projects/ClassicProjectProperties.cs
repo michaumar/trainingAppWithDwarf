@@ -4,25 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrainingApp2
+namespace TrainingApp2.Projects
 {
-    public class Project
+    public class ClassicProjectProperties : BasicProperties
     {
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        private string description;
-
-        public string Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
 
         private DateTime startTime;
 
@@ -40,7 +25,7 @@ namespace TrainingApp2
             set { endTime = value; }
         }
 
-        public Project(string name, string description, DateTime startTime, DateTime endTime)
+        public ClassicProjectProperties(string name, string description, DateTime startTime, DateTime endTime)
         {
             Name = name;
             Description = description;

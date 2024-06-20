@@ -4,40 +4,71 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using TrainingApp2.Projects;
+
 
 namespace TrainingApp2
 {
     public class ProjectManager
     {
-        List<Project> projectsList = new List<Project>();
-        public void AddProject(string name, string description, DateTime startTime, DateTime endTime)
+        public enum Limits
         {
-            projectsList.Add(new Project(name, description, startTime, endTime));
-        }
-        public void RemoveProject(string name)
-        {
-            Project searchProject = projectsList.First(project => project.Name == name);
-            projectsList.Remove(searchProject);
+            limitNumberOfProjects = 0
         }
 
-        public bool CheckIfProjectExist(string name)
+        List<ClassicProjectProperties> classicProjectsList = new List<ClassicProjectProperties>();
+        List<FinanceProjectProperties> financeProjectsList = new List<FinanceProjectProperties>();
+        public void AddClassicProject(string name, string description, DateTime startTime, DateTime endTime)
         {
-            Project searchProject = projectsList.FirstOrDefault(project => project.Name == name);
-            return projectsList.Contains(searchProject);
+            classicProjectsList.Add(new ClassicProjectProperties(name, description, startTime, endTime));
         }
-        public void DisplayProjects()
+        public void RemoveClassicProject(string name)
         {
-            foreach (var project in projectsList)
+            ClassicProjectProperties searchProject = classicProjectsList.First(project => project.Name == name);
+            classicProjectsList.Remove(searchProject);
+        }
+        public bool CheckIfClassicProjectExist(string name)
+        {
+            ClassicProjectProperties searchProject = classicProjectsList.FirstOrDefault(project => project.Name == name);
+            return classicProjectsList.Contains(searchProject);
+        }
+        public void DisplayClassicProjects()
+        {
+            foreach (var project in classicProjectsList)
             {
                 Console.WriteLine("Name: {0}, Description: {1}, Start time: {2}, End time: {3}", project.Name, project.Description, project.StartTime, project.EndTime);
             }
         }
-
-        public int CheckActualAmountOfProject()
+        public int CheckActualAmountOfClassicProject()
         {
-            return projectsList.Count();
+            return classicProjectsList.Count();
         }
 
+        public void AddFinanceProject(string name, string description, float price, string author)
+        {
+            financeProjectsList.Add(new FinanceProjectProperties(name, description, price, author));
+        }
+        public void RemoveFinanceProject(string name)
+        {
+            FinanceProjectProperties searchProject = financeProjectsList.First(project => project.Name == name);
+            financeProjectsList.Remove(searchProject);
+        }
+        public bool CheckIfFinanceProjectExist(string name)
+        {
+            FinanceProjectProperties searchProject = financeProjectsList.FirstOrDefault(project => project.Name == name);
+            return financeProjectsList.Contains(searchProject);
+        }
+        public void DisplayFinanceProjects()
+        {
+            foreach (var project in financeProjectsList)
+            {
+                Console.WriteLine("Name: {0}, Description: {1}, Price: {2}, Author: {3}", project.Name, project.Description, project.Price, project.Author);
+            }
+        }
+        public int CheckActualAmountOfFinanceProject()
+        {
+            return financeProjectsList.Count();
+        }
 
     }
 }
