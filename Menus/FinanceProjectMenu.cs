@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using TrainingApp2.Validators;
 using static TrainingApp2.Menus.Menu;
-using static TrainingApp2.ProjectManager;
+using static TrainingApp2.ProjectManagerFinanceProjects;
 
 namespace TrainingApp2.Menus
 {
     public class FinanceProjectMenu
     {
-        ProjectManager projects = new ProjectManager();
+        ProjectManagerFinanceProjects projects = new ProjectManagerFinanceProjects();
         InputDataValidation inputData = new InputDataValidation();
         BasicValidator basicValidator = new BasicValidator();
         FinanceProjectValidator financeProjectValidator = new FinanceProjectValidator();

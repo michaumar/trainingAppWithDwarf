@@ -7,13 +7,13 @@ using TrainingApp2.Validators;
 using TrainingApp2.Menus;
 using System.Threading.Channels;
 using static TrainingApp2.Menus.Menu;
-using static TrainingApp2.ProjectManager;
+using static TrainingApp2.ProjectManagerClassicProjects;
 
 namespace TrainingApp2.Menus
 {
     public class ClassicProjectMenu
     {
-        ProjectManager projects = new ProjectManager();
+        ProjectManagerClassicProjects projects = new ProjectManagerClassicProjects();
         InputDataValidation inputData = new InputDataValidation();
         BasicValidator basicValidator = new BasicValidator();
         ClassicProjectValidator classicProjectValidator = new ClassicProjectValidator();
