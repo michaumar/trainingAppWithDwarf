@@ -46,7 +46,7 @@ namespace TrainingApp2.Menus
                         }
                     }
 
-                    if (projects.CheckIfClassicProjectExist(name))
+                    if (projects.CheckIfProjectExist(name))
                     {
                         Console.WriteLine("Project will not be saved, because exists!\n");
                     }
@@ -60,15 +60,15 @@ namespace TrainingApp2.Menus
                     Console.WriteLine("2. Delete project");
                     while (true)
                     {
-                        if (projects.CheckActualAmountOfClassicProject() > (int)Limits.limitNumberOfProjects)
+                        if (projects.CheckActualAmountOfProject() > (int)Limits.limitNumberOfProjects)
                         {
                             Console.WriteLine("To delete project, type name!");
                             var tempName = inputData.GetStringValueFromConsole();
-                            var tempNameCheck = projects.CheckIfClassicProjectExist(tempName);
+                            var tempNameCheck = projects.CheckIfProjectExist(tempName);
 
                             if (tempNameCheck)
                             {
-                                projects.RemoveClassicProject(tempName);
+                                projects.RemoveProject(tempName);
                                 break;
                             }
                             else

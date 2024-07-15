@@ -9,7 +9,7 @@ using TrainingApp2.Projects;
 
 namespace TrainingApp2
 {
-    public class ProjectManagerFinanceProjects
+    public class ProjectManagerFinanceProjects: ProjectManagerBasicProjects
     {
         public enum Limits
         {
@@ -21,16 +21,6 @@ namespace TrainingApp2
         {
             financeProjectsList.Add(new FinanceProjectProperties(name, description, price, author));
         }
-        public void RemoveFinanceProject(string name)
-        {
-            FinanceProjectProperties searchProject = financeProjectsList.First(project => project.Name == name);
-            financeProjectsList.Remove(searchProject);
-        }
-        public bool CheckIfFinanceProjectExist(string name)
-        {
-            FinanceProjectProperties searchProject = financeProjectsList.FirstOrDefault(project => project.Name == name);
-            return financeProjectsList.Contains(searchProject);
-        }
         public void DisplayFinanceProjects()
         {
             foreach (var project in financeProjectsList)
@@ -38,10 +28,7 @@ namespace TrainingApp2
                 Console.WriteLine("Name: {0}, Description: {1}, Price: {2}, Author: {3}", project.Name, project.Description, project.Price, project.Author);
             }
         }
-        public int CheckActualAmountOfFinanceProject()
-        {
-            return financeProjectsList.Count();
-        }
+
 
     }
 }

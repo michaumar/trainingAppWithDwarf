@@ -32,7 +32,7 @@ namespace TrainingApp2.Menus
                     var author = financeProjectValidator.ValidateAuthor();
 
 
-                    if (projects.CheckIfFinanceProjectExist(name))
+                    if (projects.CheckIfProjectExist(name))
                     {
                         Console.WriteLine("Project will not be saved, because exists!\n");
                     }
@@ -46,15 +46,15 @@ namespace TrainingApp2.Menus
                     Console.WriteLine("2. Delete project");
                     while (true)
                     {
-                        if (projects.CheckActualAmountOfFinanceProject() > (int)Limits.limitNumberOfProjects)
+                        if (projects.CheckActualAmountOfProject() > (int)Limits.limitNumberOfProjects)
                         {
                             Console.WriteLine("To delete project, type name!");
                             var tempName = inputData.GetStringValueFromConsole();
-                            var tempNameCheck = projects.CheckIfFinanceProjectExist(tempName);
+                            var tempNameCheck = projects.CheckIfProjectExist(tempName);
 
                             if (tempNameCheck)
                             {
-                                projects.RemoveFinanceProject(tempName);
+                                projects.RemoveProject(tempName);
                                 break;
                             }
                             else
