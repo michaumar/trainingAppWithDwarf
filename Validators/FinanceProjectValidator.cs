@@ -1,8 +1,6 @@
-﻿using TrainingApp2.Interfaces;
-
-namespace TrainingApp2.Validators
+﻿namespace TrainingApp2.Validators
 {
-    public class FinanceProjectValidator : BasicValidator, IFinanceProjectValidator
+    public class FinanceProjectValidator : BasicValidator
     {
         enum Limits
         {
