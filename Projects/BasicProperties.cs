@@ -1,6 +1,6 @@
 ﻿namespace TrainingApp2.Projects
 {
-    public class BasicProperties
+    public abstract class BasicProperties
     {
         private string name;
 
