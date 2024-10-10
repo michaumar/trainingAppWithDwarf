@@ -5,12 +5,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using TrainingApp2.Interfaces;
-using TrainingApp2.Projects;
 
 
-namespace TrainingApp2
+namespace TrainingApp2.Projects
 {
-    public class ProjectManagerClassicProjects: IProjectManagerClassicProjects
+    public class ProjectManagerClassicProjects : IProjectManagerClassicProjects
     {
         public enum Limits
         {

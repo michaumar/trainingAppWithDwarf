@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static TrainingApp2.Menus.Menu;
+using static TrainingApp2.Projects.ProjectManagerMarketingProjects;
 using TrainingApp2.Validators;
+using TrainingApp2.Projects;
+using TrainingApp2.Interfaces;
 
 namespace TrainingApp2.Menus
 {
@@ -13,7 +16,7 @@ namespace TrainingApp2.Menus
         ProjectManagerMarketingProjects projects = new ProjectManagerMarketingProjects();
         InputDataValidation inputData = new InputDataValidation();
         BasicEcologicMarketingLogisticValidator basicEcologicMarketingLogisticValidator = new BasicEcologicMarketingLogisticValidator();
-        MarketingProjectValidator MarketingProjectValidator = new MarketingProjectValidator();
+        MarketingProjectValidator marketingProjectValidator = new MarketingProjectValidator();
         Menu menu = new Menu();
 
         int tempProjectSelectMenu;
@@ -25,19 +28,33 @@ namespace TrainingApp2.Menus
                 if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.addProjectSelection)
                 {
                     Console.WriteLine("1. Add project");
-                    var name = basicValidator.ValidateName();
-                    var description = basicValidator.ValidateDescription();
-                    var price = financeProjectValidator.ValidatePrice();
-                    var author = financeProjectValidator.ValidateAuthor();
+                    var name = basicEcologicMarketingLogisticValidator.ValidateName();
+                    var client = marketingProjectValidator.ValidateClient();
+                    var budget = basicEcologicMarketingLogisticValidator.ValidateBudget();
+                    var status = basicEcologicMarketingLogisticValidator.ValidateStatus();
+                    var startTime = basicEcologicMarketingLogisticValidator.ValidateStartTime();
+                    var endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
 
+                    while (true)
+                    {
+                        if (endTime > startTime)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("end time > start time!\n");
+                            endTime = marketingProjectValidator.ValidateEndTime();
+                        }
+                    }
 
-                    if (projects.CheckIfFinanceProjectExist(name))
+                    if (projects.CheckIfMarketingProjectExist(name))
                     {
                         Console.WriteLine("Project will not be saved, because exists!\n");
                     }
                     else
                     {
-                        projects.AddFinanceProject(name, description, price, author);
+                        projects.AddMarketingProject(name, client, startTime, endTime, budget, status);
                     }
                 }
                 else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.deleteProjectSelection)
@@ -45,22 +62,22 @@ namespace TrainingApp2.Menus
                     Console.WriteLine("2. Delete project");
                     while (true)
                     {
-                        if (projects.CheckActualAmountOfFinanceProject() > (int)Limits.limitNumberOfProjects)
+                        if (projects.CheckActualAmountOfMarketingProject() > (int)Limits.limitNumberOfProjects)
                         {
                             Console.WriteLine("To delete project, type name!");
                             var tempName = inputData.GetStringValueFromConsole();
-                            var tempNameCheck = projects.CheckIfFinanceProjectExist(tempName);
+                            var tempNameCheck = projects.CheckIfMarketingProjectExist(tempName);
 
                             if (tempNameCheck)
                             {
-                                projects.RemoveFinanceProject(tempName);
+                                projects.RemoveMarketingProject(tempName);
                                 break;
                             }
                             else
                             {
                                 Console.WriteLine("Project does not exist! Try one more time!\n");
                             }
-                            projects.DisplayFinanceProjects();
+                            projects.DisplayMarketingProjects();
                         }
                         else
                         {
@@ -72,12 +89,12 @@ namespace TrainingApp2.Menus
                 else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.displayProjectListSelection)
                 {
                     Console.WriteLine("3.Display projects list");
-                    projects.DisplayFinanceProjects();
+                    projects.DisplayMarketingProjects();
                 }
                 else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.displayProjectListAndSelectMenuSelection)
                 {
                     Console.WriteLine("4. Display projects list and display project select menu");
-                    projects.DisplayFinanceProjects();
+                    projects.DisplayMarketingProjects();
                     break;
                 }
                 else

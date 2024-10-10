@@ -12,6 +12,7 @@ int tempProjectSelectMenu;
 
 ClassicProjectMenu classicProjectMenu = new ClassicProjectMenu();
 FinanceProjectMenu financeProjectMenu = new FinanceProjectMenu();
+MarketingProjectMenu marketingProjectMenu = new MarketingProjectMenu();
 
 while(true)
 {
@@ -24,6 +25,11 @@ while(true)
     {
         financeProjectMenu.FinanceProjectMenuSelection();
     }
+    else if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.marketingProjectSelection)
+    {
+        marketingProjectMenu.MarketingProjectMenuSelection();
+    }
+
     else if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.closeProjectSelection)
     {
         break;

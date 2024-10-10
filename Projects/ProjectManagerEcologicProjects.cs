@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrainingApp2.Projects;
 
-namespace TrainingApp2
+namespace TrainingApp2.Projects
 {
     public class ProjectManagerEcologicProjects
     {
@@ -16,7 +15,7 @@ namespace TrainingApp2
         }
 
         List<EcologicProjectProperties> ecologicProjectList = new List<EcologicProjectProperties>();
-        
+
 
     }
 }

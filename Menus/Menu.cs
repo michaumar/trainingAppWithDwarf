@@ -20,6 +20,7 @@ namespace TrainingApp2.Menus
         {
             classicProjectSelection = 1,
             financeProjectSelection,
+            marketingProjectSelection,
             closeProjectSelection
         }
 
@@ -55,7 +56,8 @@ namespace TrainingApp2.Menus
             Console.WriteLine("\nAvailable options:\n" +
                               "1. Classic project\n" +
                               "2. Finance project\n" +
-                              "3. Close\n"
+                              "3. Marketing project\n" +
+                              "4. Close\n"
 
                               );
             while (true)
@@ -63,14 +65,14 @@ namespace TrainingApp2.Menus
                 try
                 {
                     var optionValue = int.Parse(Console.ReadLine());
-                    if (optionValue >= 1 && optionValue <= 3)
+                    if (optionValue >= 1 && optionValue <= 4)
                         return optionValue;
                     else
                         throw new ArgumentOutOfRangeException();
                 }
                 catch
                 {
-                    Console.WriteLine("Wrong! Choose between 1, 2, 3");
+                    Console.WriteLine("Wrong! Choose between 1, 2, 3, 4");
                 }
             }
 

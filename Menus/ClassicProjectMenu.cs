@@ -7,7 +7,8 @@ using TrainingApp2.Validators;
 using TrainingApp2.Menus;
 using System.Threading.Channels;
 using static TrainingApp2.Menus.Menu;
-using static TrainingApp2.ProjectManagerClassicProjects;
+using static TrainingApp2.Projects.ProjectManagerClassicProjects;
+using TrainingApp2.Projects;
 
 namespace TrainingApp2.Menus
 {

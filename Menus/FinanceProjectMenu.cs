@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrainingApp2.Projects;
 using TrainingApp2.Validators;
 using static TrainingApp2.Menus.Menu;
-using static TrainingApp2.ProjectManagerFinanceProjects;
+using static TrainingApp2.Projects.ProjectManagerFinanceProjects;
 
 namespace TrainingApp2.Menus
 {
