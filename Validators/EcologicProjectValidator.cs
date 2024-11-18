@@ -20,11 +20,11 @@ namespace TrainingApp2.Validators
             while (true)
             {
                 Console.WriteLine("Type organizer");
-                var status = inputData.GetStringValueFromConsole();
-                if (status.Length >= (int)Limits.limitLenghtOfOrganizer)
+                var organizer = inputData.GetStringValueFromConsole();
+                if (organizer.Length >= (int)Limits.limitLenghtOfOrganizer)
                 {
                     Console.WriteLine("\nOrganizer has correct length!\n");
-                    return status;
+                    return organizer;
                 }
                 else
                 {
@@ -36,8 +36,18 @@ namespace TrainingApp2.Validators
         public bool ValidateToDoList()
         {
             Console.WriteLine("Type to do list");
-            //get list from console no i potem validacja
-            return false;
+
+            var toDoList = inputData.GetListValueFromConsole();
+            if (toDoList.Any())
+            {
+                Console.WriteLine("List is OK");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("List is empty");
+                return false;
+            }
         }
     }
 }
