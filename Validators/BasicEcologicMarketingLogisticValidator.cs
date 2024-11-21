@@ -103,5 +103,22 @@ namespace TrainingApp2.Validators
                 }
             }
         }
+        public string ValidateClient()
+        {
+            while (true)
+            {
+                Console.WriteLine("Type client name");
+                var client = inputData.GetStringValueFromConsole();
+                if (client.Length >= (int)Limits.limitLenghtOfClient)
+                {
+                    Console.WriteLine("\nClient has correct length!\n");
+                    return client;
+                }
+                else
+                {
+                    Console.WriteLine("\nClient must have at least 1 character!\n");
+                }
+            }
+        }
     }
 }

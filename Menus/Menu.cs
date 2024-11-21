@@ -21,6 +21,8 @@ namespace TrainingApp2.Menus
             classicProjectSelection = 1,
             financeProjectSelection,
             marketingProjectSelection,
+            ecologicProjectSelection,
+            logisticProjectSelection,
             closeProjectSelection
         }
 
@@ -57,7 +59,8 @@ namespace TrainingApp2.Menus
                               "1. Classic project\n" +
                               "2. Finance project\n" +
                               "3. Marketing project\n" +
-                              "4. Close\n"
+                              "4. Ecologic project \n" +
+                              "5. Close\n"
 
                               );
             while (true)
@@ -65,14 +68,14 @@ namespace TrainingApp2.Menus
                 try
                 {
                     var optionValue = int.Parse(Console.ReadLine());
-                    if (optionValue >= 1 && optionValue <= 4)
+                    if (optionValue >= 1 && optionValue <= 5)
                         return optionValue;
                     else
                         throw new ArgumentOutOfRangeException();
                 }
                 catch
                 {
-                    Console.WriteLine("Wrong! Choose between 1, 2, 3, 4");
+                    Console.WriteLine("Wrong! Choose between 1, 2, 3, 4, 5");
                 }
             }
 

@@ -16,7 +16,6 @@ namespace TrainingApp2.Menus
         ProjectManagerMarketingProjects projects = new ProjectManagerMarketingProjects();
         InputDataValidation inputData = new InputDataValidation();
         BasicEcologicMarketingLogisticValidator basicEcologicMarketingLogisticValidator = new BasicEcologicMarketingLogisticValidator();
-        MarketingProjectValidator marketingProjectValidator = new MarketingProjectValidator();
         Menu menu = new Menu();
 
         int tempProjectSelectMenu;
@@ -29,7 +28,7 @@ namespace TrainingApp2.Menus
                 {
                     Console.WriteLine("1. Add project");
                     var name = basicEcologicMarketingLogisticValidator.ValidateName();
-                    var client = marketingProjectValidator.ValidateClient();
+                    var client = basicEcologicMarketingLogisticValidator.ValidateClient();
                     var budget = basicEcologicMarketingLogisticValidator.ValidateBudget();
                     var status = basicEcologicMarketingLogisticValidator.ValidateStatus();
                     var startTime = basicEcologicMarketingLogisticValidator.ValidateStartTime();
@@ -44,7 +43,7 @@ namespace TrainingApp2.Menus
                         else
                         {
                             Console.WriteLine("end time > start time!\n");
-                            endTime = marketingProjectValidator.ValidateEndTime();
+                            endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
                         }
                     }
 

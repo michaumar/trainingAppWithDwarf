@@ -7,5 +7,6 @@
         public DateTime ValidateEndTime();
         public float ValidateBudget();
         public string ValidateStatus();
+        public string ValidateClient();
     }
 }

@@ -10,6 +10,6 @@ namespace TrainingApp2.Interfaces
     {
         public string ValidateOrganizer();
 
-        public bool ValidateToDoList();
+        public List<string> ValidateToDoList();
     }
 }

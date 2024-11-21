@@ -42,5 +42,14 @@
             set { status = value; }
         }
 
+        private string client;
+
+        public string Client
+        {
+            get { return client; }
+            set { client = value; }
+        }
+
+
     }
 }

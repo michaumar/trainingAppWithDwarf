@@ -33,7 +33,7 @@ namespace TrainingApp2.Validators
             }
         }
 
-        public bool ValidateToDoList()
+        public List<string> ValidateToDoList()
         {
             Console.WriteLine("Type to do list");
 
@@ -41,13 +41,12 @@ namespace TrainingApp2.Validators
             if (toDoList.Any())
             {
                 Console.WriteLine("List is OK");
-                return true;
             }
             else
             {
                 Console.WriteLine("List is empty");
-                return false;
             }
+            return toDoList;
         }
     }
 }

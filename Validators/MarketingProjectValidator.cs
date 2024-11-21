@@ -31,8 +31,6 @@ namespace TrainingApp2.Validators
                     Console.WriteLine("\nClient must have at least 1 character!\n");
                 }
             }
-
-
         }
     }
 }
