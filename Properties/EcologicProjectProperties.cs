@@ -25,7 +25,7 @@ namespace TrainingApp2.Projects
         }
 
 
-        public EcologicProjectProperties(string name, string organizer, DateTime startTime, DateTime endTime, float budget, string status, List<string> toDoList)
+        public EcologicProjectProperties(string name, string organizer, DateTime startTime, DateTime endTime, float budget, string status, List<string> toDoList = null)
             //List<string> toDoList = null
             
         {
@@ -35,8 +35,8 @@ namespace TrainingApp2.Projects
             EndTime = endTime;
             Budget = budget;
             Status = status;
-            ToDoList = toDoList;
-            //ToDoList = toDoList ?? new List<string>();
+            //ToDoList = toDoList;
+            ToDoList = toDoList ?? new List<string>();
 
         }
 

@@ -60,7 +60,8 @@ namespace TrainingApp2.Menus
                               "2. Finance project\n" +
                               "3. Marketing project\n" +
                               "4. Ecologic project \n" +
-                              "5. Close\n"
+                              "5. Logistic project \n" +
+                              "6. Close\n"
 
                               );
             while (true)
@@ -68,14 +69,14 @@ namespace TrainingApp2.Menus
                 try
                 {
                     var optionValue = int.Parse(Console.ReadLine());
-                    if (optionValue >= 1 && optionValue <= 5)
+                    if (optionValue >= 1 && optionValue <= 6)
                         return optionValue;
                     else
                         throw new ArgumentOutOfRangeException();
                 }
                 catch
                 {
-                    Console.WriteLine("Wrong! Choose between 1, 2, 3, 4, 5");
+                    Console.WriteLine("Wrong! Choose between 1, 2, 3, 4, 5, 6");
                 }
             }
 

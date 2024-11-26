@@ -31,7 +31,7 @@ namespace TrainingApp2.Menus
                 {
                     Console.WriteLine("1. Add project");
                     var name = basicEcologicMarketingLogisticValidator.ValidateName();
-                    var organizer = basicEcologicMarketingLogisticValidator.ValidateClient();
+                    var organizer = ecologicProjectValidator.ValidateOrganizer();
                     var budget = basicEcologicMarketingLogisticValidator.ValidateBudget();
                     var status = basicEcologicMarketingLogisticValidator.ValidateStatus();
                     var startTime = basicEcologicMarketingLogisticValidator.ValidateStartTime();

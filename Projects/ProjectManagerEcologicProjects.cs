@@ -33,9 +33,10 @@ namespace TrainingApp2.Projects
         {
             foreach (var project in ecologicProjectList)
             {
-                Console.WriteLine("Name: {0}, Organizer: {1}, Start time: {2}, End time: {3}, Budget: {4}, Status: {5}, ToDoList: {6}", project.Name, project.Organizer, project.StartTime, project.EndTime, project.Budget, project.Status, project.ToDoList);
+                //string toDoList = string.Join(", ", project.ToDoList);
+                string toDoList = string.Join(", ", project.ToDoList.Select((task, index) => $"{index + 1}. {task}"));
+                Console.WriteLine("Name: {0}, Organizer: {1}, Start time: {2}, End time: {3}, Budget: {4:C}, Status: {5}, ToDoList: {6}", project.Name, project.Organizer, project.StartTime, project.EndTime, project.Budget, project.Status, toDoList);
             }
-            //trza dodać pyntle dla wyświetlania tej tablicy to do
         }
         public int CheckActualAmountOfEcologicProject()
         {
