@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TrainingApp2.Interfaces
 {
-    internal interface IMarketingProjectValidator
+    internal interface ILogisticProjectValidator
     {
-        public string ValidateClient();
+
     }
 }

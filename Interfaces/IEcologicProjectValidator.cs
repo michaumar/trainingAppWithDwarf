@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingApp2.Interfaces
 {
-    public interface IEcologicProjectValidator
+    internal interface IEcologicProjectValidator
     {
         public string ValidateOrganizer();
 

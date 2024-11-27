@@ -7,7 +7,7 @@ using TrainingApp2.Projects;
 
 namespace TrainingApp2.Interfaces
 {
-    public interface IProjectManagerMarketingProjects
+    internal interface IProjectManagerMarketingProjects
     {
         public void AddMarketingProject(string name, string client, DateTime startTime, DateTime endTime, float budget, string status);
         public void RemoveMarketingProject(string name);

@@ -74,11 +74,11 @@ namespace TrainingApp2.Validators
             while (true)
             {
                 Console.WriteLine("Type Budget");
-                var name = inputData.GetFloatValueFromConsole();
-                if (name != (int)Limits.budgetException)
+                var budget = inputData.GetFloatValueFromConsole();
+                if (budget != (int)Limits.budgetException)
                 {
                     Console.WriteLine("\nBudget is not zero! OK\n");
-                    return name;
+                    return budget;
                 }
                 else
                 {

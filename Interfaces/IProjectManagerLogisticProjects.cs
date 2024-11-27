@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingApp2.Interfaces
 {
-    public interface IProjectManagerLogisticProjects
+    internal interface IProjectManagerLogisticProjects
     {
     }
 }

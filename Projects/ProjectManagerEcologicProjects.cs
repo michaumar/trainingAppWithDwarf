@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrainingApp2.Interfaces;
 
 namespace TrainingApp2.Projects
 {
-    public class ProjectManagerEcologicProjects
+    public class ProjectManagerEcologicProjects: IProjectManagerEcologicProjects
     {
         //nejm, organizator, data początkowa, data end, budżet, status, jako lista akcje do wykonania
         public enum Limits
