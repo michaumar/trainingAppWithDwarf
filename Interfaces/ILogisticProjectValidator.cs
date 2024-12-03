@@ -8,6 +8,9 @@ namespace TrainingApp2.Interfaces
 {
     internal interface ILogisticProjectValidator
     {
+        public List<string> ValidateTransportCustomerList();
+        public List<string> ValidateAllTasksList();
+        public float ValidateCostOfSomething();
 
     }
 }

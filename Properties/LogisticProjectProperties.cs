@@ -40,8 +40,10 @@ namespace TrainingApp2.Projects
             set { client = value; }
         }
 
-        public LogisticProjectProperties(string name, string client, DateTime startTime, DateTime endTime, float budget, string status, 
-            float costOfSomething, List<string> transportCustomerList = null, List<string> allTasksList = null)
+        public LogisticProjectProperties(string name, string client, DateTime startTime, DateTime endTime,
+            float budget, string status, 
+            float costOfSomething, 
+            List<string> transportCustomerList = null, List<string> allTasksList = null)
         {
             Name = name;
             Client = client;

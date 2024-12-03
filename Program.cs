@@ -14,8 +14,9 @@ ClassicProjectMenu classicProjectMenu = new ClassicProjectMenu();
 FinanceProjectMenu financeProjectMenu = new FinanceProjectMenu();
 MarketingProjectMenu marketingProjectMenu = new MarketingProjectMenu();
 EcologicProjectMenu ecologicProjectMenu = new EcologicProjectMenu();
+LogisticProjectMenu logisticProjectMenu = new LogisticProjectMenu();
 
-while(true)
+while (true)
 {
     tempProjectSelectMenu = menu.DisplayProjectSelectMenu();
     if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.classicProjectSelection)
@@ -36,10 +37,10 @@ while(true)
         ecologicProjectMenu.EcologicProjectMenuSelection();
     }
 
-    //else if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.logisticProjectSelection)
-    //{
-    //    logisticProjectMenu.LogisticProjectMenuSelection();
-    //}
+    else if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.logisticProjectSelection)
+    {
+        logisticProjectMenu.LogisticProjectMenuSelection();
+    }
 
     else if (tempProjectSelectMenu == (int)ProjectSelectMenuSelections.closeProjectSelection)
     {

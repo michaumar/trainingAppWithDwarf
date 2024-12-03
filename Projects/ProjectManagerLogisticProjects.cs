@@ -38,7 +38,7 @@ namespace TrainingApp2.Projects
             {
                 string transportCustomerList = string.Join(", ", project.TransportCustomerList.Select((task, index) => $"{index + 1}. {task}"));
                 string allTasksList = string.Join(", ", project.AllTasksList.Select((task, index) => $"{index + 1}. {task}"));
-                Console.WriteLine("Name: {0}, Client: {1}, Start time: {2}, End time: {3}, Budget: {4:C}, Status: {5}, ToDoList: {6}", project.Name, project.Client, project.StartTime, project.EndTime, project.Budget, project.Status, project.CostOfSomething, transportCustomerList, allTasksList);
+                Console.WriteLine("Name: {0}, Client: {1}, Start time: {2}, End time: {3}, Budget: {4:C}, Status: {5}, Cost of something: {6}, Transport customer list: {7}, All tasks list: {8}", project.Name, project.Client, project.StartTime, project.EndTime, project.Budget, project.Status, project.CostOfSomething, transportCustomerList, allTasksList);
             }
         }
         public int CheckActualAmountOfLogisticProject()

@@ -49,7 +49,7 @@ namespace TrainingApp2.Validators
         {
             while (true)
             {
-                Console.WriteLine("Type Budget");
+                Console.WriteLine("Type cost of something");
                 var cost = inputData.GetFloatValueFromConsole();
                 if (cost >= (int)Limits.costOfSomething)
                 {
