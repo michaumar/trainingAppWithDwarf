@@ -36,7 +36,6 @@ namespace TrainingApp2.Menus
                     var status = basicEcologicMarketingLogisticValidator.ValidateStatus();
                     var startTime = basicEcologicMarketingLogisticValidator.ValidateStartTime();
                     var endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
-                    var toDoList = ecologicProjectValidator.ValidateToDoList();
 
                     while (true)
                     {
@@ -50,6 +49,10 @@ namespace TrainingApp2.Menus
                             endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
                         }
                     }
+
+                    var toDoList = ecologicProjectValidator.ValidateToDoList();
+
+
 
                     if (projects.CheckIfEcologicProjectExist(name))
                     {

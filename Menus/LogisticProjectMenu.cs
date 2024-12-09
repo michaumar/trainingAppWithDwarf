@@ -36,9 +36,7 @@ namespace TrainingApp2.Menus
                     var costOfSomething = logisticProjectValidator.ValidateCostOfSomething();
                     var startTime = basicEcologicMarketingLogisticValidator.ValidateStartTime();
                     var endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
-                    var transportCustomerList = logisticProjectValidator.ValidateTransportCustomerList();
-                    var allTasksList = logisticProjectValidator.ValidateAllTasksList();
-
+                    
                     while (true)
                     {
                         if (endTime > startTime)
@@ -51,6 +49,11 @@ namespace TrainingApp2.Menus
                             endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
                         }
                     }
+
+                    var transportCustomerList = logisticProjectValidator.ValidateTransportCustomerList();
+                    var allTasksList = logisticProjectValidator.ValidateAllTasksList();
+
+
 
                     if (projects.CheckIfLogisticProjectExist(name))
                     {
