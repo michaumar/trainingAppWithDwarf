@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrainingApp2.Validators;
-using TrainingApp2.Menus;
-using System.Threading.Channels;
 using static TrainingApp2.Menus.Menu;
-using static TrainingApp2.Projects.ProjectManagerClassicProjects;
+using static TrainingApp2.Projects.ProjectManagerLogisticProjects;
+using TrainingApp2.Validators;
 using TrainingApp2.Projects;
 
 namespace TrainingApp2.Menus
 {
-    public class ClassicProjectMenu
+    public class LogisticProjectMenu
     {
-        ProjectManagerClassicProjects projects = new ProjectManagerClassicProjects();
+        ProjectManagerLogisticProjects projects = new ProjectManagerLogisticProjects();
         InputDataValidation inputData = new InputDataValidation();
-        BasicValidator basicValidator = new BasicValidator();
-        ClassicProjectValidator classicProjectValidator = new ClassicProjectValidator();
+        BasicEcologicMarketingLogisticValidator basicEcologicMarketingLogisticValidator = new BasicEcologicMarketingLogisticValidator();
+        LogisticProjectValidator logisticProjectValidator = new LogisticProjectValidator();
         Menu menu = new Menu();
 
         int tempProjectSelectMenu;
-        public void ClassicProjectMenuSelection()
+
+
+        public void LogisticProjectMenuSelection()
         {
             while (true)
             {
@@ -29,11 +29,14 @@ namespace TrainingApp2.Menus
                 if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.addProjectSelection)
                 {
                     Console.WriteLine("1. Add project");
-                    var name = basicValidator.ValidateName();
-                    var description = basicValidator.ValidateDescription();
-                    var startTime = classicProjectValidator.ValidateStartTime();
-                    var endTime = classicProjectValidator.ValidateEndTime();
-
+                    var name = basicEcologicMarketingLogisticValidator.ValidateName();
+                    var client = logisticProjectValidator.ValidateClient();
+                    var budget = basicEcologicMarketingLogisticValidator.ValidateBudget();
+                    var status = basicEcologicMarketingLogisticValidator.ValidateStatus();
+                    var costOfSomething = logisticProjectValidator.ValidateCostOfSomething();
+                    var startTime = basicEcologicMarketingLogisticValidator.ValidateStartTime();
+                    var endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
+                    
                     while (true)
                     {
                         if (endTime > startTime)
@@ -43,17 +46,22 @@ namespace TrainingApp2.Menus
                         else
                         {
                             Console.WriteLine("end time > start time!\n");
-                            endTime = classicProjectValidator.ValidateEndTime();
+                            endTime = basicEcologicMarketingLogisticValidator.ValidateEndTime();
                         }
                     }
 
-                    if (projects.CheckIfClassicProjectExist(name))
+                    var transportCustomerList = logisticProjectValidator.ValidateTransportCustomerList();
+                    var allTasksList = logisticProjectValidator.ValidateAllTasksList();
+
+
+
+                    if (projects.CheckIfLogisticProjectExist(name))
                     {
                         Console.WriteLine("Project will not be saved, because exists!\n");
                     }
                     else
                     {
-                        projects.AddClassicProject(name, description, startTime, endTime);
+                        projects.AddLogisticProject(name, client, startTime, endTime, budget, status, costOfSomething, transportCustomerList, allTasksList);
                     }
                 }
                 else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.deleteProjectSelection)
@@ -61,22 +69,22 @@ namespace TrainingApp2.Menus
                     Console.WriteLine("2. Delete project");
                     while (true)
                     {
-                        if (projects.CheckActualAmountOfClassicProject() > (int)Limits.limitNumberOfProjects)
+                        if (projects.CheckActualAmountOfLogisticProject() > (int)Limits.limitNumberOfProjects)
                         {
                             Console.WriteLine("To delete project, type name!");
                             var tempName = inputData.GetStringValueFromConsole();
-                            var tempNameCheck = projects.CheckIfClassicProjectExist(tempName);
+                            var tempNameCheck = projects.CheckIfLogisticProjectExist(tempName);
 
                             if (tempNameCheck)
                             {
-                                projects.RemoveClassicProject(tempName);
+                                projects.RemoveLogisticProject(tempName);
                                 break;
                             }
                             else
                             {
                                 Console.WriteLine("Project does not exist! Try one more time!\n");
                             }
-                            projects.DisplayClassicProjects();
+                            projects.DisplayLogisticProjects();
                         }
                         else
                         {
@@ -88,22 +96,19 @@ namespace TrainingApp2.Menus
                 else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.displayProjectListSelection)
                 {
                     Console.WriteLine("3.Display projects list");
-                    projects.DisplayClassicProjects();
+                    projects.DisplayLogisticProjects();
                 }
                 else if (tempProjectSelectMenu == (int)ProjectManagerMenuSelections.displayProjectListAndSelectMenuSelection)
                 {
                     Console.WriteLine("4. Display projects list and display project select menu");
-                    projects.DisplayClassicProjects();
+                    projects.DisplayLogisticProjects();
                     break;
                 }
                 else
                 {
                     Console.WriteLine("Try one more time, something went wrong!");
                 }
-
             }
-
         }
-
     }
 }

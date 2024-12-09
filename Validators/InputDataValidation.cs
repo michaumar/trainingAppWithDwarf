@@ -65,5 +65,29 @@ namespace TrainingApp2.Validators
             }
         }
 
+        public List<string> GetListValueFromConsole()
+        {
+            List<string> list = new List<string>();
+            while(true)
+            {
+                try
+                {
+                    Console.WriteLine("Type 'end' to finalized the list!\n");
+                    string listElements = Console.ReadLine();
+                    if (listElements.ToLower() == "end")
+                        break;
+                    list.Add(listElements);
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine("String argument needed! \n");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Something bad occured - {e.Message}! Try one more time! \n");
+                }
+            }
+            return list;
+        }
     }
 }
